@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:03:21 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/12 18:33:01 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/12 18:44:22 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_atoi_sw(const char *str, t_stack **stack_a)
 		i++;
 	}
 	if (str[i])
-		ft_error_exit(NULL, NULL);
+		ft_error_exit(stack_a, NULL);
 	return (n * sign);
 }
 
