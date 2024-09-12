@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:03:21 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/11 14:53:45 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/12 18:33:01 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_stack	*ft_lstnew_sw(int number, int index)
 	return (node);
 }
 
-int	ft_atoi_sw(const char *str)
+int	ft_atoi_sw(const char *str, t_stack **stack_a)
 {
 	int	sign;
 	int	i;
@@ -38,12 +38,6 @@ int	ft_atoi_sw(const char *str)
 	sign = 1;
 	n = 0;
 	i = 0;
-	while (str[i])
-	{
-		if ((str[i] < 0 || str[i] > 9) && (str[i] != '+' && str[i] != '-'))
-			ft_error_exit(NULL, NULL);
-		i++;
-	}
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
@@ -55,10 +49,12 @@ int	ft_atoi_sw(const char *str)
 		n = n * 10 + (str[i] - 48);
 		i++;
 	}
+	if (str[i])
+		ft_error_exit(NULL, NULL);
 	return (n * sign);
 }
 
-t_stack	*ft_lstlast(t_stack *lst)
+t_stack	*ft_lstlast_sw(t_stack *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -67,19 +63,18 @@ t_stack	*ft_lstlast(t_stack *lst)
 	return (lst);
 }
 
-void	ft_lstadd_back(t_stack **lst, t_stack *new)
+void	ft_lstadd_back_sw(t_stack **lst, t_stack *new)
 {
-	t_stack	*node;
+	t_stack	*aux;
 
-	node = *lst;
-	if (!new || !lst)
-		return ;
-	if (!node)
+	if (!*lst)
 	{
 		*lst = new;
 		return ;
 	}
-	node = ft_lstlast(node);
-	node->next = new;
+	if (!new || !lst)
+		return ;
+	aux = ft_lstlast_sw(*lst);
+	aux->next = new;
 	return ;
 }
