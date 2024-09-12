@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:03:21 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/12 18:44:22 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/12 19:18:16 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ t_stack	*ft_lstnew_sw(int number, int index)
 
 int	ft_atoi_sw(const char *str, t_stack **stack_a)
 {
-	int	sign;
-	int	i;
-	int	n;
+	int			sign;
+	int			i;
+	long int	n;
 
 	sign = 1;
 	n = 0;
@@ -49,9 +49,10 @@ int	ft_atoi_sw(const char *str, t_stack **stack_a)
 		n = n * 10 + (str[i] - 48);
 		i++;
 	}
-	if (str[i])
+	n = n * sign;
+	if (str[i] || n < -2147483648 || n > 2147483647)
 		ft_error_exit(stack_a, NULL);
-	return (n * sign);
+	return (n);
 }
 
 t_stack	*ft_lstlast_sw(t_stack *lst)
