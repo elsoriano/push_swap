@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 16:19:37 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/12 18:53:59 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/12 19:25:23 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_error_exit(t_stack **stack_a, t_stack **stack_b)
 			aux = (*stack_a)->next;
 			free(*stack_a);
 		}
+		free(stack_a);
 	}
 	if (stack_b && *stack_b)
 	{
@@ -35,6 +36,7 @@ void	ft_error_exit(t_stack **stack_a, t_stack **stack_b)
 			aux = (*stack_b)->next;
 			free(*stack_b);
 		}
+		free(stack_b);
 	}
 	write(1, "ERROR\n", 6);
 	exit(EXIT_FAILURE);
