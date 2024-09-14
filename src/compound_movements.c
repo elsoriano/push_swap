@@ -6,9 +6,11 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 12:27:44 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/14 12:45:48 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/14 12:46:52 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 void	ft_ss(t_stack **stack_a, t_stack **stack_b)
 {
@@ -23,6 +25,7 @@ void	ft_rr(t_stack **stack_a, t_stack **stack_b)
 	ft_rotate(stack_b, 'r');
 	write(1, "rr\n", 3);
 }
+
 void	ft_rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_rotate(stack_a, 'r');
