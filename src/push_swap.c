@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:41:23 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/12 19:38:40 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/14 13:42:36 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	main(int argc, char **argv)
 	if (argc <= 1)
 		return (0);
 	stack_a = ft_stack_gen(argv, stack_a, argc);
+	if (argc <= 3)
+		ft_three_or_less(stack_a, argc - 1);
 	stack_b = ft_fill_stack_b(stack_a, stack_b);
 	return (0);
 }

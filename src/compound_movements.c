@@ -6,11 +6,11 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 12:27:44 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/14 12:46:52 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/14 13:24:34 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 void	ft_ss(t_stack **stack_a, t_stack **stack_b)
 {
