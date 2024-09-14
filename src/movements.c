@@ -6,13 +6,13 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 19:41:16 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/14 12:43:46 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/14 12:50:51 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	ft_rotate(t_stack **stack_a, char c)
+void	ft_rotate(t_stack **stack, char c)
 {
 	t_stack	*aux;
 

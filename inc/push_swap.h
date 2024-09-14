@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:48:49 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/12 17:33:20 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/14 12:51:09 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,11 @@ int		ft_atoi_sw(const char *str, t_stack **stack_a);
 t_stack	*ft_lstlast_sw(t_stack *lst);
 void	ft_lstadd_back_sw(t_stack **lst, t_stack *new);
 void	ft_error_exit(t_stack **stack_a, t_stack **stack_b);
+void	ft_rotate(t_stack **stack, char c);
+void	ft_reverse_rotate(t_stack **stack, char c);
+void	ft_swap(t_stack **stack, char c);
+void	ft_push(t_stack **src, t_stack **dst, char c);
+void	ft_ss(t_stack **stack_a, t_stack **stack_b);
+void	ft_rr(t_stack **stack_a, t_stack **stack_b);
+void	ft_rrr(t_stack **stack_a, t_stack **stack_b);
 #endif
