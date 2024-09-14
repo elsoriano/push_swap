@@ -6,7 +6,9 @@ NAME = push_swap.out
 SRCS = src/push_swap.c \
 			src/push_swap_utils.c \
 			src/errors.c \
-			src/ft_strlcat.c
+			src/movements.c \
+			src/compound_movements.c \
+			src/three.c \
 all: $(NAME)
 
 $(NAME): inc/push_swap.h
