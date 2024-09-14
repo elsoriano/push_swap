@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 19:41:16 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/14 12:22:32 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/14 12:43:46 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,39 @@ void	ft_rotate(t_stack **stack_a, char c)
 {
 	t_stack	*aux;
 
-	if (!stack || *stack)
+	if (!stack || !*stack)
 		return ;
 	aux = (*stack)->next;
 	ft_lstadd_back_sw(stack, *stack);
 	*stack = aux;
-	write(1, "r", 1);
-	write(1, &c, 1);
-	write(1, "\n", 1);
-	return (0);
+	if (c != 'r')
+	{
+		write(1, "r", 1);
+		write(1, &c, 1);
+		write(1, "\n", 1);
+	}
+}
+
+void	ft_reverse_rotate(t_stack **stack, char c)
+{
+	t_stack	*aux;
+	t_stack	*last;
+
+	if (!stack || !*stack)
+		return ;
+	last = ft_lstlast_sw(*stack);
+	last->next = *stack;
+	*stack = last;
+	aux = *stack;
+	while ((aux)->next != *stack)
+		aux = aux->next;
+	aux->next = NULL;
+	if (c != 'r')
+	{
+		write(1, "rr", 2);
+		write(1, &c, 1);
+		write(1, "\n", 1);
+	}
 }
 
 void	ft_swap(t_stack **stack, char c)
@@ -62,15 +86,6 @@ void	ft_push(t_stack **src, t_stack **dst, char c)
 	return ;
 }
 
-void	ft_ss(t_stack **stack_a, t_stack **stack_b)
-{
-	ft_swap(stack_a, 's');
-	ft_swap(stack_b, 's');
-	write(1, "ss\n", 3);
-}
-void	ft_rr(t_stack **stack_a, t_stack **stack_b)
-{
-	ft_rotate(stack_a, 'r');
-	ft_rotate(stack_b, 'r');
-	write(1, "rr\n", 3);
-}
+
+
+
