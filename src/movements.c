@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 19:41:16 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/14 12:50:51 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/15 10:59:33 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,15 @@ void	ft_reverse_rotate(t_stack **stack, char c)
 void	ft_swap(t_stack **stack, char c)
 {
 	t_stack	*aux;
+	t_stack	*tmp;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
 	aux = (*stack)->next;
+	tmp = aux->next;
 	aux->next = *stack;
-	(*stack)->next = (*stack)->next->next;
+	(*stack)->next = tmp;
+	*stack = aux;
 	if (c != 's')
 	{
 		write(1, "s", 1);
