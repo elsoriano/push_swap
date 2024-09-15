@@ -6,12 +6,20 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:41:23 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/15 11:45:18 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/15 12:07:16 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "../inc/push_swap.h"
+
+void	ft_more_than_three(t_stack **stack_a, int size)
+{
+	t_stack	**stack_b;
+
+	ft_find_target_pos(**stack_a);
+	stack_b = ft_stack_b_fill(stack_a, stack_b, size);
+}
 
 t_stack	**ft_stack_gen(char **argv, t_stack **stack_a, int argc)
 {
@@ -42,5 +50,7 @@ int	main(int argc, char **argv)
 	stack_a = ft_stack_gen(argv, stack_a, argc);
 	if (argc <= 4)
 		ft_three(stack_a, argc - 1);
+	else
+		ft_more_than_three(stack_a, argc - 1);
 	return (0);
 }
