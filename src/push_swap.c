@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:41:23 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/15 12:15:10 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/15 13:04:24 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_more_than_three(t_stack **stack_a, int size)
 	t_stack	**stack_b;
 
 	ft_find_target_pos(stack_a);
+	stack_b = ft_stack_b(stack_a, stack_b, size);
+	ft_three(stack_a, 3);
 }
 
 t_stack	**ft_stack_gen(char **argv, t_stack **stack_a, int argc)
@@ -27,7 +29,7 @@ t_stack	**ft_stack_gen(char **argv, t_stack **stack_a, int argc)
 
 	stack_a = (t_stack **)malloc(sizeof (t_stack *));
 	if (!stack_a)
-		return (0);
+		ft_error_exit(NULL, NULL);
 	i = 1;
 	while (i < argc)
 	{
@@ -42,7 +44,6 @@ t_stack	**ft_stack_gen(char **argv, t_stack **stack_a, int argc)
 int	main(int argc, char **argv)
 {
 	t_stack	**stack_a;
-	t_stack	**stack_b;
 
 	if (argc <= 1)
 		return (0);
