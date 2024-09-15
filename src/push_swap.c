@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:41:23 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/15 13:19:16 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/15 16:24:03 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_stack	**ft_stack_gen(char **argv, t_stack **stack_a, int argc)
 		i++;
 	}
 	ft_check_repeated(stack_a, argc - 1);
+	ft_assign_index(stack_a);
 	return (stack_a);
 }
 
