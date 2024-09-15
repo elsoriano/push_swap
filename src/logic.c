@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 11:59:09 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/15 19:24:41 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/15 20:45:45 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,41 +31,55 @@ void	ft_update_reverse_cost(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
+void	ft_update_init_pos(t_stack **stack_a, t_stack **stack_b)
+{
+	int		i;
+	t_stack	*aux;
+
+	i = 1;
+	aux = *stack_a;
+	while (aux)
+	{
+		aux->init_pos = i;
+		i++;
+		aux = aux->next;
+	}
+	i = 1;
+	aux = *stack_b;
+	while (aux)
+	{
+		aux->init_pos = i;
+		i++;
+		aux = aux->next;
+	}
+}
+
 void	ft_update_pos(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*aux_b;
 	t_stack	*aux_a;
 	t_stack	*target;
-	int		i;
 
-	i = 0;
 	aux_b = *stack_b;
-	target = 0;
+	target = *stack_b;
+	aux_a = *stack_a;
+	ft_update_init_pos(stack_a, stack_b);
 	while (aux_b)
 	{
-		aux_b->init_pos = i;
-		aux_a = *stack_a;
+		aux_b->target_pos = 1;
 		while (aux_a)
 		{
-			if (aux_a->index > aux_b->index && \
-				(aux_a->index - aux_b->index) < aux_a->index - target->index)
-				target = aux_a;
+			if (aux_a->index - aux_b->index <= target->index - aux_b->index)
+			{
+				if (aux_a->next)
+					target = aux_a->next;
+				else
+					target->init_pos++;
+			}
 			aux_a = aux_a->next;
 		}
 		aux_b->target_pos = target->init_pos;
 		aux_b = aux_b->next;
-		// if (i == size / 2)
-		// {
-		// 	if (size % 2)
-		// 	{
-		// 		i *= -1;
-		// 		aux->cost_b = i;
-		// 		aux = aux->next;
-		// 	}
-		// 	else
-		// 		i *= -1;
-		// }
-		i++;
 	}
 }
 
