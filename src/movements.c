@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 19:41:16 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/15 10:59:33 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/15 12:40:20 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,21 @@ void	ft_swap(t_stack **stack, char c)
 void	ft_push(t_stack **src, t_stack **dst, char c)
 {
 	t_stack	*aux;
-	t_stack	*first_src;
 
-	if (!src || !*src || dst || *dst)
+	if (!src || !*src || dst)
 		return ;
-	aux = (*src)->next;
-	(*src)->next = *dst;
-	*dst = *src;
-	*src = aux;
+	if (!*dst)
+	{
+		*dst = *src;
+		*src = src->next;
+	}
+	else
+	{
+		aux = (*src)->next;
+		(*src)->next = *dst;
+		*dst = *src;
+		*src = aux;
+	}
 	write(1, "s", 1);
 	write(1, &c, 1);
 	write(1, "\n", 1);
