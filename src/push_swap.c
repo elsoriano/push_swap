@@ -6,31 +6,12 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:41:23 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/15 11:25:48 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/15 11:45:18 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "../inc/push_swap.h"
-
-void	ft_check_repeated(t_stack **stack_a, int size)
-{
-	t_stack	*aux;
-	t_stack	*first;
-
-	first = *stack_a;
-	while (first)
-	{
-		aux = first->next;
-		while (aux)
-		{
-			if (first->number == aux->number)
-				ft_error_exit(stack_a, NULL);
-			aux = aux->next;
-		}
-		first = first->next;
-	}
-}
 
 t_stack	**ft_stack_gen(char **argv, t_stack **stack_a, int argc)
 {

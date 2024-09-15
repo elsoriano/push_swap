@@ -6,12 +6,31 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 16:19:37 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/15 11:41:35 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/15 11:45:26 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 #include <stdio.h>
+
+void	ft_check_repeated(t_stack **stack_a, int size)
+{
+	t_stack	*aux;
+	t_stack	*first;
+
+	first = *stack_a;
+	while (first)
+	{
+		aux = first->next;
+		while (aux)
+		{
+			if (first->number == aux->number)
+				ft_error_exit(stack_a, NULL);
+			aux = aux->next;
+		}
+		first = first->next;
+	}
+}
 
 void	ft_error_exit(t_stack **stack_a, t_stack **stack_b)
 {

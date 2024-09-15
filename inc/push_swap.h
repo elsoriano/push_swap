@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:48:49 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/14 13:53:28 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/15 11:45:47 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,5 @@ void	ft_ss(t_stack **stack_a, t_stack **stack_b);
 void	ft_rr(t_stack **stack_a, t_stack **stack_b);
 void	ft_rrr(t_stack **stack_a, t_stack **stack_b);
 void	ft_three(t_stack **stack_a, int el);
+void	ft_check_repeated(t_stack **stack_a, int size);
 #endif
