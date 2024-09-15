@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:03:21 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/15 10:40:42 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/15 14:04:36 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ t_stack	*ft_lstnew_sw(int number, int index)
 	if (!node)
 		return (NULL);
 	node->number = number;
-	node->index = index;
-	node->init_pos = -1;
+	node->index = -1;
+	node->init_pos = index;
 	node->target_pos = -1;
 	node->cost_a = -1;
 	node->cost_b = -1;

@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 11:59:09 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/15 13:53:20 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/15 14:48:42 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,22 @@ void	ft_costs(t_stack **stack_b, int size)
 
 	i = 0;
 	aux = *stack_b;
-	while (i <= size / 2)
-	{
-		aux->cost_b = i;
-		aux = aux->next;
-		i++;
-	}
-	if (size % 2)
-		i--;
 	while (aux)
 	{
 		aux->cost_b = i;
 		aux = aux->next;
-		i--;
+		if (i == size / 2)
+		{
+			if (size % 2)
+			{
+				i *= -1;
+				aux->cost_b = i;
+				aux = aux->next;
+			}
+			else
+				i *= -1;
+		}
+		i++;
 	}
 }
 
