@@ -6,13 +6,36 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 11:59:09 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/15 13:10:07 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/15 13:53:20 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-t_stack	**ft_stack_b(t_stack **stack_a, t_stack **stack_b, int size)
+void	ft_costs(t_stack **stack_b, int size)
+{
+	t_stack	*aux;
+	int		i;
+
+	i = 0;
+	aux = *stack_b;
+	while (i <= size / 2)
+	{
+		aux->cost_b = i;
+		aux = aux->next;
+		i++;
+	}
+	if (size % 2)
+		i--;
+	while (aux)
+	{
+		aux->cost_b = i;
+		aux = aux->next;
+		i--;
+	}
+}
+
+t_stack	**ft_stack_b_push(t_stack **stack_a, t_stack **stack_b, int size)
 {
 	int		i;
 
