@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 11:59:09 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/15 20:45:45 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/15 21:20:10 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ void	ft_update_reverse_cost(t_stack **stack_a, t_stack **stack_b)
 	size_a = ft_stack_size(stack_a);
 	while (aux)
 	{
+		aux->cost_a = aux->target_pos -1;
+		aux->cost_b = aux->init_pos - 1;
 		if (aux->cost_a > size_a / 2)
-			aux->cost_a = (aux->cost_a - size_a / 2) * (-1);
+			aux->cost_a = (size_a / 2 + size_a % 2) - (aux->cost_a);
 		if (aux->cost_b > size_b / 2)
-			aux->cost_b = (aux->cost_b - size_b / 2) * (-1);
+			aux->cost_b = (size_b / 2 + size_b % 2) - (aux->cost_b);
 		aux = aux->next;
 	}
 }
