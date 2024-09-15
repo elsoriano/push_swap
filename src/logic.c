@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 11:59:09 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/15 18:05:42 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/15 18:07:42 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,26 +85,6 @@ t_stack	**ft_stack_b_push(t_stack **stack_a, t_stack **stack_b, int size)
 		i++;
 	}
 	return (stack_b);
-}
-
-void	ft_find_target_pos(t_stack **stack_a)
-{
-	t_stack	*aux;
-	t_stack	*comp;
-
-	aux = *stack_a;
-	while (aux)
-	{
-		comp = *stack_a;
-		aux->target_pos = 1;
-		while (comp)
-		{
-			if (aux->number > comp->number)
-				aux->target_pos++;
-			comp = comp->next;
-		}
-		aux = aux->next;
-	}
 }
 
 void	ft_assign_index(t_stack **stack_a)
