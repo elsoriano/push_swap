@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:41:23 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/15 16:24:03 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/15 17:48:29 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_more_than_three(t_stack **stack_a, int size)
 	ft_find_target_pos(stack_a);
 	stack_b = ft_stack_b_push(stack_a, stack_b, size);
 	ft_three(stack_a, 3);
-	ft_costs(stack_b, size - 3);
+	ft_update_pos(stack_a, stack_b);
 }
 
 t_stack	**ft_stack_gen(char **argv, t_stack **stack_a, int argc)

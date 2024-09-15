@@ -6,11 +6,24 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:03:21 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/15 14:04:36 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/15 16:46:29 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+int	ft_stack_size(t_stack **stack)
+{
+	int		size;
+
+	size = 0;
+	while (*stack)
+	{
+		size++;
+		*stack = (*stack)->next;
+	}
+	return (size);
+}
 
 t_stack	*ft_lstnew_sw(int number, int index)
 {
