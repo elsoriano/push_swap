@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 22:11:29 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/20 17:16:25 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/20 19:12:01 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_set_stacks(t_stack **stack_a, t_stack **stack_b, t_stack *target)
 		return ;
 	while (i != ft_abs_val(target->cost_b))
 	{
-		if (target->cost_b < 0)
+		if (target->cost_b > 0)
 			ft_rotate(stack_b, 'b');
 		else
 			ft_reverse_rotate(stack_b, 'b');
@@ -30,7 +30,7 @@ void	ft_set_stacks(t_stack **stack_a, t_stack **stack_b, t_stack *target)
 	i = 0;
 	while (i != ft_abs_val(target->cost_a))
 	{
-		if (target->cost_a < 0)
+		if (target->cost_a > 0)
 			ft_rotate(stack_a, 'a');
 		else
 			ft_reverse_rotate(stack_a, 'a');

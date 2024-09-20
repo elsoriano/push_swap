@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 11:59:09 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/20 18:50:16 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/20 20:02:53 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,17 @@ void	ft_update_pos(t_stack **stack_a, t_stack **stack_b)
 	while (aux_b)
 	{
 		aux_b->target_pos = 1;
-		while (aux_a->next && aux_a->index < aux_b->index && \
-					aux_a->index < aux_a->next->index)
+		while (aux_a->index > aux_b->index)
 		{
 			aux_b->target_pos += 1;
 			aux_a = aux_a->next;
 		}
-		if ((!aux_a->next && aux_b->index > aux_a->index) || \
-			(aux_a->index > aux_a->next->index && aux_b->index > aux_a->index))
+		while (aux_a->next && aux_a->index < aux_b->index)
+		{
+			aux_b->target_pos += 1;
+			aux_a = aux_a->next;
+		}
+		if (!aux_a->next && aux_b->index > aux_a->index)
 			aux_b->target_pos += 1;
 		aux_b = aux_b->next;
 		aux_a = *stack_a;
