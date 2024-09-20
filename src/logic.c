@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 11:59:09 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/16 16:50:28 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/20 18:50:16 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,28 +60,24 @@ void	ft_update_pos(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*aux_b;
 	t_stack	*aux_a;
-	t_stack	*target;
 
 	aux_b = *stack_b;
-	target = *stack_b;
 	aux_a = *stack_a;
 	ft_update_init_pos(stack_a, stack_b);
 	while (aux_b)
 	{
 		aux_b->target_pos = 1;
-		while (aux_a)
+		while (aux_a->next && aux_a->index < aux_b->index && \
+					aux_a->index < aux_a->next->index)
 		{
-			if (aux_a->index - aux_b->index <= target->index - aux_b->index)
-			{
-				if (aux_a->next)
-					target = aux_a->next;
-				else
-					target->init_pos++;
-			}
+			aux_b->target_pos += 1;
 			aux_a = aux_a->next;
 		}
-		aux_b->target_pos = target->init_pos;
+		if ((!aux_a->next && aux_b->index > aux_a->index) || \
+			(aux_a->index > aux_a->next->index && aux_b->index > aux_a->index))
+			aux_b->target_pos += 1;
 		aux_b = aux_b->next;
+		aux_a = *stack_a;
 	}
 }
 
