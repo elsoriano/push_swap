@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:48:49 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/20 17:00:11 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/21 10:16:22 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	ft_rr(t_stack **stack_a, t_stack **stack_b);
 void	ft_rrr(t_stack **stack_a, t_stack **stack_b);
 void	ft_three(t_stack **stack_a, int el);
 void	ft_check_repeated(t_stack **stack_a, int size);
-void	ft_find_target_pos(t_stack **stack_a);
 t_stack	**ft_stack_b_push(t_stack **stack_a, t_stack **stack_b, int size);
 void	ft_update_pos(t_stack **stack_a, t_stack **stack_b);
 void	ft_cost_a(t_stack **stack_a, t_stack **stack_b);
@@ -58,4 +57,5 @@ int		ft_stack_size(t_stack **stack);
 t_stack	*ft_calc_best(t_stack **stack_b);
 int		ft_abs_val(int n);
 void	ft_set_stacks(t_stack **stack_a, t_stack **stack_b, t_stack *target);
+void	ft_find_target_pos(t_stack *aux_a, t_stack *aux_b);
 #endif

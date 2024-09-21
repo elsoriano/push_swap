@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 11:59:09 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/20 20:02:53 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/21 11:20:55 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,34 @@ void	ft_update_reverse_cost(t_stack **stack_a, t_stack **stack_b)
 	{
 		aux->cost_a = aux->target_pos -1;
 		aux->cost_b = aux->init_pos - 1;
-		if (aux->cost_a > size_a / 2)
-			aux->cost_a = (size_a / 2) - (aux->cost_a) + 2;
+		if (aux->cost_a == size_a)
+			aux->cost_a = 0;
+		else if (aux->cost_a > size_a / 2)
+			aux->cost_a = (size_a / 2) - (aux->cost_a) + 1;
 		if (aux->cost_b > size_b / 2)
 			aux->cost_b = (size_b / 2) - (aux->cost_b);
 		aux = aux->next;
+	}
+}
+
+void	ft_find_target_pos(t_stack *aux_a, t_stack *aux_b)
+{
+	while (aux_a->index > aux_b->index && aux_a->next \
+				&& aux_a->index < aux_a->next->index)
+	{
+		aux_b->target_pos += 1;
+		aux_a = aux_a->next;
+	}
+	aux_b->target_pos += 1;
+	if (aux_a->next && aux_a->index > aux_a->next->index \
+			&& (aux_b->index > aux_a->index \
+			|| aux_b->index < aux_a->next->index))
+		return ;
+	aux_a = aux_a->next;
+	while (aux_a && aux_a->index < aux_b->index)
+	{
+		aux_b->target_pos += 1;
+		aux_a = aux_a->next;
 	}
 }
 
@@ -67,39 +90,10 @@ void	ft_update_pos(t_stack **stack_a, t_stack **stack_b)
 	while (aux_b)
 	{
 		aux_b->target_pos = 1;
-		while (aux_a->index > aux_b->index)
-		{
-			aux_b->target_pos += 1;
-			aux_a = aux_a->next;
-		}
-		while (aux_a->next && aux_a->index < aux_b->index)
-		{
-			aux_b->target_pos += 1;
-			aux_a = aux_a->next;
-		}
-		if (!aux_a->next && aux_b->index > aux_a->index)
-			aux_b->target_pos += 1;
+		ft_find_target_pos(aux_a, aux_b);
 		aux_b = aux_b->next;
 		aux_a = *stack_a;
 	}
-}
-
-t_stack	**ft_stack_b_push(t_stack **stack_a, t_stack **stack_b, int size)
-{
-	int		i;
-
-	i = 0;
-	stack_b = (t_stack **)malloc(sizeof (t_stack *));
-	if (!stack_b)
-		ft_error_exit(stack_a, NULL);
-	while (i < size - 3)
-	{
-		while ((*stack_a)->index <= size / 2)
-			ft_rotate(stack_a, 'a');
-		ft_push(stack_a, stack_b, 'a');
-		i++;
-	}
-	return (stack_b);
 }
 
 void	ft_assign_index(t_stack **stack_a)
