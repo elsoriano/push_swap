@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:41:23 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/21 12:24:17 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/21 12:41:07 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ t_stack	**ft_stack_b_push(t_stack **stack_a, t_stack **stack_b, int size)
 		ft_error_exit(stack_a, NULL);
 	while (i < size - 3)
 	{
-		while ((*stack_a)->index <= ((size / 2) - 1))
+		while ((*stack_a)->index <= (ft_stack_size(stack_a) / 2) \
+				|| (*stack_a)->index < 4)
 			ft_rotate(stack_a, 'a');
 		ft_push(stack_a, stack_b, 'a');
 		i++;
