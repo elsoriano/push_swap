@@ -6,11 +6,33 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 22:11:29 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/21 11:24:49 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/22 12:04:34 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+void	ft_f_rotate(t_stack **stack_a)
+{
+	t_stack	*aux;
+
+	aux = *stack_a;
+	ft_update_init_pos(stack_a, NULL);
+	while (aux->index != 1 && aux)
+	{
+		aux = aux->next;
+	}
+	if (aux->init_pos > ft_stack_size(stack_a) / 2)
+	{
+		while ((*stack_a)->index != 1)
+			ft_reverse_rotate(stack_a, 'a');
+	}
+	else
+	{
+		while ((*stack_a)->index != 1)
+			ft_rotate(stack_a, 'a');
+	}
+}
 
 void	ft_set_stacks(t_stack **stack_a, t_stack **stack_b, t_stack *target)
 {

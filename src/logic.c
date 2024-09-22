@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 11:59:09 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/22 11:27:33 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/22 11:58:07 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ void	ft_update_init_pos(t_stack **stack_a, t_stack **stack_b)
 		aux = aux->next;
 	}
 	i = 1;
+	if (!stack_b || !*stack_b)
+		return ;
 	aux = *stack_b;
 	while (aux)
 	{

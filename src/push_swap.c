@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:41:23 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/21 12:41:07 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/22 11:49:58 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_more_than_three(t_stack **stack_a, int size)
 		ft_set_stacks(stack_a, stack_b, target);
 		ft_push(stack_b, stack_a, 'b');
 	}
+	ft_f_rotate(stack_a);
 }
 
 t_stack	**ft_stack_b_push(t_stack **stack_a, t_stack **stack_b, int size)
