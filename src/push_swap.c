@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:41:23 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/22 11:49:58 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/24 18:14:41 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	ft_more_than_three(t_stack **stack_a, int size)
 		ft_push(stack_b, stack_a, 'b');
 	}
 	ft_f_rotate(stack_a);
+	free(*stack_b);
+	free(stack_b);
 }
 
 t_stack	**ft_stack_b_push(t_stack **stack_a, t_stack **stack_b, int size)
@@ -39,11 +41,15 @@ t_stack	**ft_stack_b_push(t_stack **stack_a, t_stack **stack_b, int size)
 	stack_b = (t_stack **)malloc(sizeof (t_stack *));
 	if (!stack_b)
 		ft_error_exit(stack_a, NULL);
+	while (i < size / 2)
+	{
+		while ((*stack_a)->index < (size / 2))
+			ft_rotate(stack_a, 'a');
+		ft_push(stack_a, stack_b, 'a');
+		i++;
+	}
 	while (i < size - 3)
 	{
-		while ((*stack_a)->index <= (ft_stack_size(stack_a) / 2) \
-				|| (*stack_a)->index < 4)
-			ft_rotate(stack_a, 'a');
 		ft_push(stack_a, stack_b, 'a');
 		i++;
 	}
@@ -73,6 +79,7 @@ t_stack	**ft_stack_gen(char **argv, t_stack **stack_a, int argc)
 int	main(int argc, char **argv)
 {
 	t_stack	**stack_a;
+	t_stack	*aux;
 
 	if (argc <= 1)
 		return (0);
@@ -81,5 +88,12 @@ int	main(int argc, char **argv)
 		ft_three(stack_a, argc - 1);
 	else
 		ft_more_than_three(stack_a, argc - 1);
+	while (*stack_a)
+	{
+		aux = (*stack_a)->next;
+		free(*stack_a);
+		*stack_a = aux;
+	}
+	free(stack_a);
 	return (0);
 }

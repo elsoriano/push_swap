@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 11:59:09 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/22 11:58:07 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/24 17:59:26 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ void	ft_find_target_pos(t_stack *aux_a, t_stack *aux_b)
 			|| aux_b->index < aux_a->next->index))
 		return ;
 	aux_a = aux_a->next;
-	while (aux_a->next && aux_a->index < aux_b->index \
+	while (aux_a && aux_a->next && aux_a->index < aux_b->index \
 			&& aux_a->index < aux_a->next->index)
 	{
 		aux_b->target_pos += 1;
 		aux_a = aux_a->next;
 	}
-	if (aux_b->index > aux_a->index)
+	if (aux_a && aux_b->index > aux_a->index)
 		aux_b->target_pos += 1;
 }
 
