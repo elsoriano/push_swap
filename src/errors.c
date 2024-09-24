@@ -6,14 +6,14 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 16:19:37 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/15 11:45:26 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/24 18:21:42 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 #include <stdio.h>
 
-void	ft_check_repeated(t_stack **stack_a, int size)
+void	ft_check_repeated(t_stack **stack_a)
 {
 	t_stack	*aux;
 	t_stack	*first;

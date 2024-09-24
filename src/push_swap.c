@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:41:23 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/24 18:14:41 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/24 18:23:26 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_more_than_three(t_stack **stack_a, int size)
 	t_stack	**stack_b;
 	t_stack	*target;
 
+	stack_b = NULL;
 	stack_b = ft_stack_b_push(stack_a, stack_b, size);
 	ft_three(stack_a, 3);
 	while (*stack_b)
@@ -71,7 +72,7 @@ t_stack	**ft_stack_gen(char **argv, t_stack **stack_a, int argc)
 		ft_lstadd_back_sw(stack_a, ft_lstnew_sw(number, i));
 		i++;
 	}
-	ft_check_repeated(stack_a, argc - 1);
+	ft_check_repeated(stack_a);
 	ft_assign_index(stack_a);
 	return (stack_a);
 }
@@ -83,6 +84,7 @@ int	main(int argc, char **argv)
 
 	if (argc <= 1)
 		return (0);
+	stack_a = NULL;
 	stack_a = ft_stack_gen(argv, stack_a, argc);
 	if (argc <= 4)
 		ft_three(stack_a, argc - 1);

@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 11:59:09 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/24 17:59:26 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/24 18:23:59 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,11 +103,9 @@ void	ft_update_pos(t_stack **stack_a, t_stack **stack_b)
 
 void	ft_assign_index(t_stack **stack_a)
 {
-	int		i;
 	t_stack	*temp;
 	t_stack	*aux;
 
-	i = 1;
 	temp = *stack_a;
 	while (temp)
 	{
