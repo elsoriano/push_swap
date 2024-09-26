@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:41:23 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/24 18:23:26 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/26 12:50:02 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_more_than_three(t_stack **stack_a, int size)
 		ft_update_reverse_cost(stack_a, stack_b);
 		target = ft_calc_best(stack_b);
 		ft_set_stacks(stack_a, stack_b, target);
-		ft_push(stack_b, stack_a, 'b');
+		ft_push(stack_b, stack_a, 'a');
 	}
 	ft_f_rotate(stack_a);
 	free(*stack_b);
@@ -46,12 +46,12 @@ t_stack	**ft_stack_b_push(t_stack **stack_a, t_stack **stack_b, int size)
 	{
 		while ((*stack_a)->index < (size / 2))
 			ft_rotate(stack_a, 'a');
-		ft_push(stack_a, stack_b, 'a');
+		ft_push(stack_a, stack_b, 'b');
 		i++;
 	}
 	while (i < size - 3)
 	{
-		ft_push(stack_a, stack_b, 'a');
+		ft_push(stack_a, stack_b, 'b');
 		i++;
 	}
 	return (stack_b);
