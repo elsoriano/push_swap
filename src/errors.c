@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 16:19:37 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/24 18:21:42 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/26 16:25:04 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ void	ft_error_exit(t_stack **stack_a, t_stack **stack_b)
 		}
 		free(stack_b);
 	}
-	write(1, "ERROR\n", 6);
+	write(1, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
