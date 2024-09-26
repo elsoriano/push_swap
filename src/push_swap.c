@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:41:23 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/26 12:50:02 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/26 16:59:57 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_stack	**ft_stack_b_push(t_stack **stack_a, t_stack **stack_b, int size)
 	stack_b = (t_stack **)malloc(sizeof (t_stack *));
 	if (!stack_b)
 		ft_error_exit(stack_a, NULL);
-	while (i < size / 2)
+	while (i < ((size / 2) - 1))
 	{
 		while ((*stack_a)->index < (size / 2))
 			ft_rotate(stack_a, 'a');
