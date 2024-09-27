@@ -6,12 +6,34 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:41:23 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/26 17:53:15 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/27 13:17:10 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "../inc/push_swap.h"
+
+void	ft_check_ordered(t_stack **stack_a)
+{
+	t_stack	*aux;
+
+	aux = *stack_a;
+	while (aux->next && aux->index < aux->next->index)
+	{
+		aux = aux->next;
+	}
+	if (!aux->next)
+	{
+		while (*stack_a)
+		{
+			aux = *stack_a;
+			*stack_a = (*stack_a)->next;
+			free(aux);
+		}
+		free(stack_a);
+		exit (EXIT_SUCCESS);
+	}
+}
 
 void	ft_more_than_three(t_stack **stack_a, int size)
 {
@@ -19,6 +41,7 @@ void	ft_more_than_three(t_stack **stack_a, int size)
 	t_stack	*target;
 
 	stack_b = NULL;
+	ft_check_ordered(stack_a);
 	stack_b = ft_stack_b_push(stack_a, stack_b, size);
 	ft_three(stack_a, 3);
 	while (*stack_b)
