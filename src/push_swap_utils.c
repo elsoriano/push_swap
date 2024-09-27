@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:03:21 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/27 13:31:12 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/27 13:39:25 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_stack_size(t_stack **stack)
 {
 	int		size;
-	t_stack *aux;
+	t_stack	*aux;
 
 	size = 0;
 	aux = *stack;
