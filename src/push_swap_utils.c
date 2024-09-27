@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:03:21 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/27 13:39:25 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/27 14:44:38 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_stack_size(t_stack **stack)
 	return (size);
 }
 
-t_stack	*ft_lstnew_sw(int number, int index)
+t_stack	*ft_lstnew_sw(int number, int i)
 {
 	t_stack	*node;
 
@@ -36,7 +36,7 @@ t_stack	*ft_lstnew_sw(int number, int index)
 		return (NULL);
 	node->number = number;
 	node->index = -1;
-	node->init_pos = index;
+	node->init_pos = i;
 	node->target_pos = -1;
 	node->cost_a = -1;
 	node->cost_b = -1;
@@ -85,7 +85,8 @@ void	ft_lstadd_back_sw(t_stack **lst, t_stack *new)
 {
 	t_stack	*aux;
 
-	aux = NULL;
+	if (!new || !lst)
+		return ;
 	if (!*lst)
 	{
 		*lst = new;
@@ -94,7 +95,10 @@ void	ft_lstadd_back_sw(t_stack **lst, t_stack *new)
 	if (!new || !lst)
 		return ;
 	aux = ft_lstlast_sw(*lst);
-	aux->next = new;
-	new->next = NULL;
+	if (aux)
+	{
+		aux->next = new;
+		new->next = NULL;
+	}
 	return ;
 }

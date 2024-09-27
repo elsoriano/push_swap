@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:41:23 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/27 13:17:10 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/27 14:43:49 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ t_stack	**ft_stack_b_push(t_stack **stack_a, t_stack **stack_b, int size)
 	stack_b = (t_stack **)malloc(sizeof (t_stack *));
 	if (!stack_b)
 		ft_error_exit(stack_a, NULL);
+	*stack_b = NULL;
 	while (i < ((size / 2) - 1 + (size % 2)) && size > 5)
 	{
 		while ((*stack_a)->index < (size / 2) + (size % 2))
@@ -84,15 +85,20 @@ t_stack	**ft_stack_gen(char **argv, t_stack **stack_a, int argc)
 {
 	long int	number;
 	int			i;
+	t_stack		*aux;
 
 	stack_a = (t_stack **)malloc(sizeof (t_stack *));
 	if (!stack_a)
 		ft_error_exit(NULL, NULL);
+	*stack_a = NULL;
 	i = 1;
 	while (i < argc)
 	{
 		number = ft_atoi_sw(argv[i], stack_a);
-		ft_lstadd_back_sw(stack_a, ft_lstnew_sw(number, i));
+		aux = ft_lstnew_sw(number, i);
+		if (!aux)
+			ft_error_exit(stack_a, NULL);
+		ft_lstadd_back_sw(stack_a, aux);
 		i++;
 	}
 	ft_check_repeated(stack_a);

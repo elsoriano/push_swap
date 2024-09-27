@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:48:49 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/27 13:17:52 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/27 14:31:58 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_index
 }			t_index;
 
 t_stack	**ft_stack_gen(char **argv, t_stack **stack_a, int argc);
-t_stack	*ft_lstnew_sw(int number, int index);
+t_stack	*ft_lstnew_sw(int number, int i);
 int		ft_atoi_sw(const char *str, t_stack **stack_a);
 t_stack	*ft_lstlast_sw(t_stack *lst);
 void	ft_lstadd_back_sw(t_stack **lst, t_stack *new);
