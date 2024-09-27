@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 11:59:09 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/24 18:23:59 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/27 12:42:25 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_update_reverse_cost(t_stack **stack_a, t_stack **stack_b)
 		else if (aux->cost_a > size_a / 2)
 			aux->cost_a = aux->cost_a - size_a;
 		if (aux->cost_b > size_b / 2)
-			aux->cost_b = aux->cost_b - size_b - 1;
+			aux->cost_b = aux->cost_b - size_b;
 		aux = aux->next;
 	}
 }
