@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:03:21 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/27 12:58:20 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/27 13:31:12 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void	ft_lstadd_back_sw(t_stack **lst, t_stack *new)
 {
 	t_stack	*aux;
 
+	aux = NULL;
 	if (!*lst)
 	{
 		*lst = new;

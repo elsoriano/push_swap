@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 19:41:16 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/26 12:46:31 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/27 13:26:00 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	ft_push(t_stack **src, t_stack **dst, char c)
 {
 	t_stack	*aux;
 
+	aux = NULL;
 	if (!src || !*src)
 		return ;
 	if (!*dst)
