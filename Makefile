@@ -11,7 +11,7 @@ SRCSFILES = compound_movements.c \
 			three.c
 SRCS = $(addprefix $(SRCDIR)/,$(SRCSFILES))
 OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
-HEAD = -Iinc
+HEAD = -I inc
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
