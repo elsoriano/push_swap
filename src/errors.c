@@ -6,7 +6,7 @@
 /*   By: rhernand <rhernand@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 16:19:37 by rhernand          #+#    #+#             */
-/*   Updated: 2024/09/27 12:50:12 by rhernand         ###   ########.fr       */
+/*   Updated: 2024/09/30 18:27:30 by rhernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_error_exit(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*aux;
 
-	if (stack_a && *stack_a)
+	if (stack_a)
 	{
 		while (*stack_a)
 		{
@@ -46,7 +46,7 @@ void	ft_error_exit(t_stack **stack_a, t_stack **stack_b)
 		}
 		free(stack_a);
 	}
-	if (stack_b && *stack_b)
+	if (stack_b)
 	{
 		while (*stack_b)
 		{
