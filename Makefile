@@ -1,28 +1,39 @@
+NAME = push_swap
+SRCDIR = src
+OBJDIR = obj
+SRCSFILES = compound_movements.c \
+			errors.c \
+			logic.c \
+			movements.c \
+			push_swap_utils.c \
+			push_swap.c \
+			sort.c \
+			three.c
+SRCS = $(addprefix $(SRCDIR)/,$(SRCSFILES))
+OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
+HEAD = -Iinc
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
-AR = ar
-ARFLAGS = rcs
-NAME = push_swap.out
-SRCS = src/push_swap.c \
-			src/push_swap_utils.c \
-			src/errors.c \
-			src/movements.c \
-			src/compound_movements.c \
-			src/three.c \
+CFLAGS = -Wall -Wextra -Werror
+
 all: $(NAME)
 
-$(NAME): inc/push_swap.h
-	$(CC) $(CFLAGS) $(SRCS) -o $@
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+$(OBJS): $(SRCS)
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.c | obj
+	$(CC) $(CFLAGS) -c $< -o $@ $(HEAD)
+
+obj:
+	@mkdir -p $(OBJDIR)
 
 clean:
-	rm -f $(OBJS) $(OBJS_BONUS)
+	rm -rf $(OBJDIR)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 
-bonus: $(OBJS) $(OBJS_BONUS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS) $(OBJS_BONUS)
-
-.PHONY: clean fclean re bonus
+PHONY: all clean fclean re
